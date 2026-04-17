@@ -16,18 +16,31 @@ jobs:
         env:
           ALLOWED: "astraea skill-factory aeolus-agents dart-agents climada-agents wrf-chem-agents research-zotero slideaway notion-ao-research ephemeris"
           PLUGIN: ${{ github.event.client_payload.plugin }}
-          REPO: ${{ github.event.client_payload.repo }}
         run: |
           if ! echo "$ALLOWED" | grep -qw "$PLUGIN"; then
             echo "ERROR: plugin '$PLUGIN' not in allowlist" >&2
             exit 1
           fi
-          if [ "$REPO" != "rooftop-Owl/${PLUGIN}" ]; then
-            echo "ERROR: repo '$REPO' does not match expected 'rooftop-Owl/${PLUGIN}'" >&2
-            exit 1
-          fi
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Validate repo against marketplace.json source
+        env:
+          PLUGIN: ${{ github.event.client_payload.plugin }}
+          REPO: ${{ github.event.client_payload.repo }}
+        run: |
+          EXPECTED_REPO=$(jq -r --arg name "$PLUGIN" \
+            '.plugins[] | select(.name==$name) | .source.url
+             | ltrimstr("https://github.com/") | rtrimstr(".git")' \
+            .claude-plugin/marketplace.json)
+          if [ -z "$EXPECTED_REPO" ]; then
+            echo "ERROR: plugin '$PLUGIN' not found in marketplace.json" >&2
+            exit 1
+          fi
+          if [ "$REPO" != "$EXPECTED_REPO" ]; then
+            echo "ERROR: repo '$REPO' does not match marketplace source '$EXPECTED_REPO'" >&2
+            exit 1
+          fi
 
       - name: Verify SHA reachable from main
         env:
