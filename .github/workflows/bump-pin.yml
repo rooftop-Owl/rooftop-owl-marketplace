@@ -10,7 +10,6 @@ jobs:
       cancel-in-progress: false
     permissions:
       contents: write
-      pull-requests: write
     steps:
       - name: Validate allowlist
         env:
@@ -40,7 +39,7 @@ jobs:
             exit 1
           fi
 
-      - name: Patch marketplace.json
+      - name: Patch and push marketplace.json
         env:
           PLUGIN: ${{ github.event.client_payload.plugin }}
           SHA: ${{ github.event.client_payload.sha }}
@@ -52,21 +51,9 @@ jobs:
           fi
           jq --arg name "$PLUGIN" --arg sha "$SHA"              '(.plugins[] | select(.name==$name) | .source.sha) = $sha'              .claude-plugin/marketplace.json > tmp.json
           mv tmp.json .claude-plugin/marketplace.json
-
-      - uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: auto/bump-${{ github.event.client_payload.plugin }}-${{ github.run_id }}
-          commit-message: "chore(marketplace): bump ${{ github.event.client_payload.plugin }} to ${{ github.event.client_payload.sha }}"
-          title: "chore(marketplace): bump ${{ github.event.client_payload.plugin }} SHA"
-          body: |
-            Automated SHA pin update via `repository_dispatch`.
-
-            - Plugin: `${{ github.event.client_payload.plugin }}`
-            - New SHA: `${{ github.event.client_payload.sha }}`
-            - Source repo: `${{ github.event.client_payload.repo }}`
-
-            **Pre-merge checklist:**
-            - [ ] Verify the SHA matches the expected merge commit on the plugin repo's `main`
-          base: main
-          delete-branch: true
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .claude-plugin/marketplace.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore(marketplace): bump ${PLUGIN} to ${SHA}"
+          git push
