@@ -1,0 +1,75 @@
+name: bump-pin
+on:
+  repository_dispatch:
+    types: [plugin-updated]
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: bump-pin
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Validate allowlist
+        env:
+          ALLOWED: "astraea skill-factory aeolus-agents dart-agents climada-agents wrf-chem-agents research-zotero slideaway notion-ao-research ephemeris"
+          PLUGIN: ${{ github.event.client_payload.plugin }}
+          REPO: ${{ github.event.client_payload.repo }}
+        run: |
+          if ! echo "$ALLOWED" | grep -qw "$PLUGIN"; then
+            echo "ERROR: plugin '$PLUGIN' not in allowlist" >&2
+            exit 1
+          fi
+          if [ "$REPO" != "rooftop-Owl/${PLUGIN}" ]; then
+            echo "ERROR: repo '$REPO' does not match expected 'rooftop-Owl/${PLUGIN}'" >&2
+            exit 1
+          fi
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Verify SHA reachable from main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.event.client_payload.repo }}
+          SHA: ${{ github.event.client_payload.sha }}
+        run: |
+          STATUS=$(gh api "repos/${REPO}/compare/${SHA}...main" --jq '.status')
+          if [ "$STATUS" != "identical" ] && [ "$STATUS" != "ahead" ]; then
+            echo "ERROR: SHA '${SHA}' not reachable from main (status=${STATUS})" >&2
+            exit 1
+          fi
+
+      - name: Patch marketplace.json
+        env:
+          PLUGIN: ${{ github.event.client_payload.plugin }}
+          SHA: ${{ github.event.client_payload.sha }}
+        run: |
+          COUNT=$(jq --arg name "$PLUGIN" '[.plugins[] | select(.name==$name)] | length' .claude-plugin/marketplace.json)
+          if [ "$COUNT" -eq 0 ]; then
+            echo "ERROR: plugin '$PLUGIN' not found in marketplace.json" >&2
+            exit 1
+          fi
+          jq --arg name "$PLUGIN" --arg sha "$SHA" \
+             '(.plugins[] | select(.name==$name) | .source.sha) = $sha' \
+             .claude-plugin/marketplace.json > tmp.json
+          mv tmp.json .claude-plugin/marketplace.json
+
+      - uses: peter-evans/create-pull-request@5e914681574c5d0f72ffc09f0015a2fbb2b3b0ef # v7.0.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto/bump-${{ github.event.client_payload.plugin }}-${{ github.run_id }}
+          commit-message: "chore(marketplace): bump ${{ github.event.client_payload.plugin }} to ${{ github.event.client_payload.sha }}"
+          title: "chore(marketplace): bump ${{ github.event.client_payload.plugin }} SHA"
+          body: |
+            Automated SHA pin update via `repository_dispatch`.
+
+            - Plugin: `${{ github.event.client_payload.plugin }}`
+            - New SHA: `${{ github.event.client_payload.sha }}`
+            - Source repo: `${{ github.event.client_payload.repo }}`
+
+            **Pre-merge checklist:**
+            - [ ] Verify the SHA matches the expected merge commit on the plugin repo's `main`
+          base: main
+          delete-branch: true
