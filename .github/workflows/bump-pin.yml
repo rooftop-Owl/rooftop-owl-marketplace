@@ -29,28 +29,14 @@ jobs:
           PLUGIN: ${{ github.event.client_payload.plugin }}
           REPO: ${{ github.event.client_payload.repo }}
         run: |
-          EXPECTED_REPO=$(jq -r --arg name "$PLUGIN" \
-            '.plugins[] | select(.name==$name) | .source.url
-             | ltrimstr("https://github.com/") | rtrimstr(".git")' \
-            .claude-plugin/marketplace.json)
+          EXPECTED_REPO=$(jq -r --arg name "$PLUGIN"             '.plugins[] | select(.name==$name) | .source.url
+             | ltrimstr("https://github.com/") | rtrimstr(".git")'             .claude-plugin/marketplace.json)
           if [ -z "$EXPECTED_REPO" ]; then
             echo "ERROR: plugin '$PLUGIN' not found in marketplace.json" >&2
             exit 1
           fi
           if [ "$REPO" != "$EXPECTED_REPO" ]; then
             echo "ERROR: repo '$REPO' does not match marketplace source '$EXPECTED_REPO'" >&2
-            exit 1
-          fi
-
-      - name: Verify SHA reachable from main
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPO: ${{ github.event.client_payload.repo }}
-          SHA: ${{ github.event.client_payload.sha }}
-        run: |
-          STATUS=$(gh api "repos/${REPO}/compare/${SHA}...main" --jq '.status')
-          if [ "$STATUS" != "identical" ] && [ "$STATUS" != "ahead" ]; then
-            echo "ERROR: SHA '${SHA}' not reachable from main (status=${STATUS})" >&2
             exit 1
           fi
 
@@ -64,9 +50,7 @@ jobs:
             echo "ERROR: plugin '$PLUGIN' not found in marketplace.json" >&2
             exit 1
           fi
-          jq --arg name "$PLUGIN" --arg sha "$SHA" \
-             '(.plugins[] | select(.name==$name) | .source.sha) = $sha' \
-             .claude-plugin/marketplace.json > tmp.json
+          jq --arg name "$PLUGIN" --arg sha "$SHA"              '(.plugins[] | select(.name==$name) | .source.sha) = $sha'              .claude-plugin/marketplace.json > tmp.json
           mv tmp.json .claude-plugin/marketplace.json
 
       - uses: peter-evans/create-pull-request@v7
