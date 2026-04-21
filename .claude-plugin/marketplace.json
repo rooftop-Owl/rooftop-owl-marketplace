@@ -87,6 +87,7 @@
         },
         {
             "name": "slideaway",
+            "version": "2.6.0",
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/slideaway.git",
