@@ -24,7 +24,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/skill-factory.git",
-                "sha": "9638c30188854c34c5fb206e3484559669365c8e"
+                "sha": "80d9352b89cb846f064ec9b5987d69a41b7c7dd3"
             },
             "description": "Portable skill lifecycle manager — search 300K+ skills, import from GitHub, validate against agentskills.io spec, remove cleanly with provenance tracking.",
             "category": "developer-tools",
@@ -35,7 +35,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/aeolus-agents.git",
-                "sha": "99c3dd042291a8918ad4721067f15b47c6e0ea00"
+                "sha": "f4e0f0c5e784f55627ce432ae0203495139c25f4"
             },
             "description": "Thematic bundle for atmospheric-science research — aggregates dart-agents, climada-agents, wrf-chem-agents, and a bundled scientific-research sub-plugin. Install this to get the full science stack in one step.",
             "category": "scientific-research",
@@ -46,7 +46,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/dart-agents.git",
-                "sha": "f0cafb7e8e98f1496a71897cf52ab63ae815703c"
+                "sha": "74b7605dfb1cb69cd7a1aff928c4e0853655b73c"
             },
             "description": "SOTA skills and agents for DART ensemble data assimilation, Fortran development, WRF-Chem integration, and atmospheric science workflows.",
             "category": "scientific-research",
@@ -57,7 +57,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/climada-agents.git",
-                "sha": "33f49bbe44b173592c3332b9733cfbe809b20c6e"
+                "sha": "dcc980328fe1e05c3698c3bd3d2a5bd854699f2b"
             },
             "description": "Specialized skills for CLIMADA climate risk workflows — hazards, exposures, impacts, visualization, economics, committee governance.",
             "category": "scientific-research",
@@ -68,7 +68,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/wrf-chem-agents.git",
-                "sha": "b2fa2cc17555166943247499aa328fc9b5d0c8f7"
+                "sha": "a152edbcd25000394fa72e58cbecdb9f2a9a722b"
             },
             "description": "Specialized skills for WRF-Chem episode simulation — chemistry configuration, mozbc species mapping, WPS/ERA5 preprocessing, and visualization.",
             "category": "scientific-research",
@@ -79,7 +79,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/research-zotero.git",
-                "sha": "5c92eac1017494418fff4a0ddb995ed5d958b22a"
+                "sha": "d4c56a6b8a7024c885bf28decfd1a1c2faec9611"
             },
             "description": "Federated paper search across 22+ sources with venue/journal filtering, citation graph analysis, auto-tagging (regex + LLM), auto-classification, BibTeX export, MCP-compliant server, Semantic Scholar integration, and compounding Research KB (L1/L2/L3 hierarchy, synthesis grading, contradiction tracking, cross-session digests).",
             "category": "scientific-research",
@@ -101,7 +101,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/notion-ao-research.git",
-                "sha": "d334ed94c4ea5161f7e63a3ad39611b14833a1cd"
+                "sha": "74dc23916c8dc638f5e9b897cfe1538746a2119f"
             },
             "description": "Natural-language database operations, workspace setup, research methodology, infrastructure governance, and a bilingual (EN/KO) design handbook. Works with any MCP-compatible agent platform.",
             "category": "productivity",
@@ -112,7 +112,7 @@
             "source": {
                 "source": "url",
                 "url": "https://github.com/rooftop-Owl/ephemeris-plugin.git",
-                "sha": "93e2a07d6833a2cd3e33a1e85dd296ad7d165630"
+                "sha": "7d6d12ee2e30bf366cb68e3eb0e698ef74025f58"
             },
             "description": "Living observatory of the AI/agent/coding-tooling landscape. Karpathy-style wiki with L1 references, L2 digests, and L3 cluster surveys kept alive by a GitHub-API liveness probe. Plugin code; data at github.com/rooftop-Owl/ephemeris.",
             "category": "developer-tools",
