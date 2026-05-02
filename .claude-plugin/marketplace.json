@@ -4,7 +4,7 @@
     "name": "rooftop-Owl"
   },
   "metadata": {
-    "description": "Personal plugin registry by rooftop-Owl \u2014 orchestration, research, presentation, and tooling plugins. Single source of truth; add once, install any plugin \u00e0 la carte.",
+    "description": "Personal plugin registry by rooftop-Owl — orchestration, research, presentation, and tooling plugins. Single source of truth; add once, install any plugin à la carte.",
     "version": "1.0.0"
   },
   "plugins": [
@@ -15,7 +15,7 @@
         "url": "https://github.com/rooftop-Owl/astraea.git",
         "sha": "a3c41a1151f6433920c2a26cfbe4438a43ca69ac"
       },
-      "description": "Orchestration kernel for Claude Code \u2014 multi-agent delegation, institutional memory, governance rules, cross-session continuity, and a 3-MCP-server stack (GitNexus, DeepWiki, QMD) for codebase intelligence and knowledge retrieval.",
+      "description": "Orchestration kernel for Claude Code — multi-agent delegation, institutional memory, governance rules, cross-session continuity, and a 3-MCP-server stack (GitNexus, DeepWiki, QMD) for codebase intelligence and knowledge retrieval.",
       "category": "developer-tools",
       "homepage": "https://github.com/rooftop-Owl/astraea"
     },
@@ -26,7 +26,7 @@
         "url": "https://github.com/rooftop-Owl/skill-factory.git",
         "sha": "80d9352b89cb846f064ec9b5987d69a41b7c7dd3"
       },
-      "description": "Portable skill lifecycle manager \u2014 search 300K+ skills, import from GitHub, validate against agentskills.io spec, remove cleanly with provenance tracking.",
+      "description": "Portable skill lifecycle manager — search 300K+ skills, import from GitHub, validate against agentskills.io spec, remove cleanly with provenance tracking.",
       "category": "developer-tools",
       "homepage": "https://github.com/rooftop-Owl/skill-factory"
     },
@@ -37,7 +37,7 @@
         "url": "https://github.com/rooftop-Owl/aeolus-agents.git",
         "sha": "f4e0f0c5e784f55627ce432ae0203495139c25f4"
       },
-      "description": "Thematic bundle for atmospheric-science research \u2014 aggregates dart-agents, climada-agents, wrf-chem-agents, and a bundled scientific-research sub-plugin. Install this to get the full science stack in one step.",
+      "description": "Thematic bundle for atmospheric-science research — aggregates dart-agents, climada-agents, wrf-chem-agents, and a bundled scientific-research sub-plugin. Install this to get the full science stack in one step.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/aeolus-agents"
     },
@@ -59,7 +59,7 @@
         "url": "https://github.com/rooftop-Owl/climada-agents.git",
         "sha": "dcc980328fe1e05c3698c3bd3d2a5bd854699f2b"
       },
-      "description": "Specialized skills for CLIMADA climate risk workflows \u2014 hazards, exposures, impacts, visualization, economics, committee governance.",
+      "description": "Specialized skills for CLIMADA climate risk workflows — hazards, exposures, impacts, visualization, economics, committee governance.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/climada-agents"
     },
@@ -70,7 +70,7 @@
         "url": "https://github.com/rooftop-Owl/wrf-chem-agents.git",
         "sha": "a152edbcd25000394fa72e58cbecdb9f2a9a722b"
       },
-      "description": "Specialized skills for WRF-Chem episode simulation \u2014 chemistry configuration, mozbc species mapping, WPS/ERA5 preprocessing, and visualization.",
+      "description": "Specialized skills for WRF-Chem episode simulation — chemistry configuration, mozbc species mapping, WPS/ERA5 preprocessing, and visualization.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/wrf-chem-agents"
     },
@@ -91,7 +91,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/slideaway.git",
-        "sha": "d73450ffbf220a0802dbee39745a13cbe615821a"
+        "sha": "639ac0b51d54aa1fed3cfc415d91ef0c1e359182"
       },
       "description": "Multi-engine presentation plugin with curated styles, progressive disclosure skill architecture, anti-AI-slop heuristics, and opt-in style preview + refinement loops. Generates PPTX, HTML, reveal.js, Beamer, and Marp decks.",
       "category": "design",
