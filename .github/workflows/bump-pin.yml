@@ -39,21 +39,52 @@ jobs:
             exit 1
           fi
 
+      - name: Fetch plugin.json from the new SHA
+        env:
+          REPO: ${{ github.event.client_payload.repo }}
+          SHA: ${{ github.event.client_payload.sha }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Read version from the dispatched repo's plugin.json at the new SHA.
+          # gh api accepts raw content with the Accept header below; jq parses it.
+          # Failure to fetch is fatal — we don't want to silently leave version stale.
+          if ! gh api "repos/${REPO}/contents/.claude-plugin/plugin.json?ref=${SHA}" \
+                 -H "Accept: application/vnd.github.raw" > fetched-plugin.json 2>fetch.err; then
+            echo "ERROR: failed to fetch plugin.json from ${REPO}@${SHA}" >&2
+            cat fetch.err >&2
+            exit 1
+          fi
+          NEW_VERSION=$(jq -r '.version // empty' fetched-plugin.json)
+          if [ -z "$NEW_VERSION" ]; then
+            echo "ERROR: plugin.json at ${REPO}@${SHA} has no .version field" >&2
+            exit 1
+          fi
+          echo "PLUGIN_NEW_VERSION=${NEW_VERSION}" >> "$GITHUB_ENV"
+
       - name: Patch and push marketplace.json
         env:
           PLUGIN: ${{ github.event.client_payload.plugin }}
           SHA: ${{ github.event.client_payload.sha }}
+          NEW_VERSION: ${{ env.PLUGIN_NEW_VERSION }}
         run: |
           COUNT=$(jq --arg name "$PLUGIN" '[.plugins[] | select(.name==$name)] | length' .claude-plugin/marketplace.json)
           if [ "$COUNT" -eq 0 ]; then
             echo "ERROR: plugin '$PLUGIN' not found in marketplace.json" >&2
             exit 1
           fi
-          jq --arg name "$PLUGIN" --arg sha "$SHA"              '(.plugins[] | select(.name==$name) | .source.sha) = $sha'              .claude-plugin/marketplace.json > tmp.json
+          # Patch BOTH .source.sha and .version in a single jq pass.
+          # Prior behavior patched only .source.sha; the version field would drift
+          # silently while pointing at content with a different version. Bumping
+          # both keeps marketplace.json consistent with the plugin's plugin.json
+          # at the pinned SHA.
+          jq --arg name "$PLUGIN" --arg sha "$SHA" --arg ver "$NEW_VERSION" \
+             '(.plugins[] | select(.name==$name) | .source.sha) = $sha
+              | (.plugins[] | select(.name==$name) | .version) = $ver' \
+             .claude-plugin/marketplace.json > tmp.json
           mv tmp.json .claude-plugin/marketplace.json
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add .claude-plugin/marketplace.json
           git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "chore(marketplace): bump ${PLUGIN} to ${SHA}"
+          git commit -m "chore(marketplace): bump ${PLUGIN} to ${NEW_VERSION} (${SHA})"
           git push
