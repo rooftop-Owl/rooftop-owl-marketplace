@@ -13,12 +13,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/astraea.git",
-        "sha": "c693b33fb2b448c6c065932545e28ab7147400f1"
+        "sha": "4c856c3d88e67f981317a37f5d0b4ca2ab5f3b57"
       },
       "description": "Orchestration kernel for Claude Code \u2014 multi-agent delegation, institutional memory, governance rules, cross-session continuity, and a 3-MCP-server stack (GitNexus, DeepWiki, QMD) for codebase intelligence and knowledge retrieval.",
       "category": "developer-tools",
       "homepage": "https://github.com/rooftop-Owl/astraea",
-      "version": "0.2.2"
+      "version": "0.2.3"
     },
     {
       "name": "skill-factory",
@@ -49,7 +49,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/dart-agents.git",
-        "sha": "e3a62e44660385ca01e1cdb7c7cd4fa0c59497bb"
+        "sha": "7cd1c71ed806f3b37c2ed3ae9c2ccbb4e9424917"
       },
       "description": "SOTA skills and agents for DART ensemble data assimilation, Fortran development, WRF-Chem integration, and atmospheric science workflows.",
       "category": "scientific-research",
@@ -85,12 +85,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/research-zotero.git",
-        "sha": "f7609395c716c66faa4fa777502d5e5d47127f5a"
+        "sha": "478a3768924bde2cad82f78eb2e6ca73cc85b105"
       },
       "description": "Federated paper search across 22+ sources with venue/journal filtering, citation graph analysis, auto-tagging (regex + LLM), auto-classification, BibTeX export, MCP-compliant server, Semantic Scholar integration, and compounding Research KB (L1/L2/L3 hierarchy, synthesis grading, contradiction tracking, cross-session digests).",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/research-zotero",
-      "version": "2.5.1"
+      "version": "2.6.0"
     },
     {
       "name": "slideaway",
