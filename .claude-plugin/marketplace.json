@@ -73,7 +73,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/wrf-chem-agents.git",
-        "sha": "95870c8824f05e3831597d466f7107f958d10d94"
+        "sha": "240ac380afcb2711622a3372f6b12e1b2cfd2470"
       },
       "description": "Specialized skills for WRF-Chem episode simulation — chemistry configuration, mozbc species mapping, WPS/ERA5 preprocessing, and visualization.",
       "category": "scientific-research",
