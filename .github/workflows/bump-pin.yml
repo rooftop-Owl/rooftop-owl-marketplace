@@ -53,9 +53,10 @@ jobs:
           # secrets.GITHUB_TOKEN is scoped to THIS repo and cannot read a
           # private slideaway/astraea/etc. That cross-repo fetch is the bug
           # that stranded every private plugin's pin (see bump-pin failure
-          # history from ~2026-05-28). Read PAYLOAD_VERSION from env (not
-          # ${{ }} interpolation) so a hostile version string cannot inject
-          # shell — though the dispatch is PAT-gated and trusted.
+          # history from ~2026-05-28). PAYLOAD_VERSION is read from env (set
+          # above) rather than inlined as a workflow expression, so a hostile
+          # version string cannot inject shell — though the dispatch is
+          # PAT-gated and trusted regardless.
           VERSION="$PAYLOAD_VERSION"
           if [ -n "$VERSION" ]; then
             echo "Using version from client_payload: $VERSION"
