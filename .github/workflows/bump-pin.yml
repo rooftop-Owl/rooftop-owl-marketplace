@@ -39,27 +39,48 @@ jobs:
             exit 1
           fi
 
-      - name: Fetch plugin.json from the new SHA
+      - name: Resolve plugin version
         env:
           REPO: ${{ github.event.client_payload.repo }}
           SHA: ${{ github.event.client_payload.sha }}
+          PAYLOAD_VERSION: ${{ github.event.client_payload.version }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Read version from the dispatched repo's plugin.json at the new SHA.
-          # gh api accepts raw content with the Accept header below; jq parses it.
-          # Failure to fetch is fatal — we don't want to silently leave version stale.
-          if ! gh api "repos/${REPO}/contents/.claude-plugin/plugin.json?ref=${SHA}" \
-                 -H "Accept: application/vnd.github.raw" > fetched-plugin.json 2>fetch.err; then
-            echo "ERROR: failed to fetch plugin.json from ${REPO}@${SHA}" >&2
-            cat fetch.err >&2
+          # Primary path: the dispatching repo sends its plugin.json `.version`
+          # in the client_payload (its notify-marketplace.yml checks out main
+          # and reads it locally). This avoids the marketplace having to fetch
+          # a PRIVATE sibling repo's contents — which 404s, because
+          # secrets.GITHUB_TOKEN is scoped to THIS repo and cannot read a
+          # private slideaway/astraea/etc. That cross-repo fetch is the bug
+          # that stranded every private plugin's pin (see bump-pin failure
+          # history from ~2026-05-28). Read PAYLOAD_VERSION from env (not
+          # ${{ }} interpolation) so a hostile version string cannot inject
+          # shell — though the dispatch is PAT-gated and trusted.
+          VERSION="$PAYLOAD_VERSION"
+          if [ -n "$VERSION" ]; then
+            echo "Using version from client_payload: $VERSION"
+          else
+            # Legacy fallback: a repo whose notify-marketplace.yml has NOT been
+            # migrated to send `version` yet. Try the fetch — it succeeds for
+            # PUBLIC repos and still 404s for private ones. Loud diagnostic so
+            # the red run self-documents as "needs migration" rather than a
+            # cryptic 404.
+            echo "WARNING: client_payload.version absent — '${REPO}' still sends the legacy payload." >&2
+            echo "  Migrate its .github/workflows/notify-marketplace.yml to send plugin.json .version." >&2
+            echo "  Falling back to fetching plugin.json (404s for private repos)." >&2
+            if ! gh api "repos/${REPO}/contents/.claude-plugin/plugin.json?ref=${SHA}" \
+                   -H "Accept: application/vnd.github.raw" > fetched-plugin.json 2>fetch.err; then
+              echo "ERROR: failed to fetch plugin.json from ${REPO}@${SHA}" >&2
+              cat fetch.err >&2
+              exit 1
+            fi
+            VERSION=$(jq -r '.version // empty' fetched-plugin.json)
+          fi
+          if [ -z "$VERSION" ]; then
+            echo "ERROR: could not determine version for ${REPO}@${SHA}" >&2
             exit 1
           fi
-          NEW_VERSION=$(jq -r '.version // empty' fetched-plugin.json)
-          if [ -z "$NEW_VERSION" ]; then
-            echo "ERROR: plugin.json at ${REPO}@${SHA} has no .version field" >&2
-            exit 1
-          fi
-          echo "PLUGIN_NEW_VERSION=${NEW_VERSION}" >> "$GITHUB_ENV"
+          echo "PLUGIN_NEW_VERSION=${VERSION}" >> "$GITHUB_ENV"
 
       - name: Patch and push marketplace.json
         env:
