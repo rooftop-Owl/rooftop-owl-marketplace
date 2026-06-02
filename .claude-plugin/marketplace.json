@@ -109,7 +109,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/notion-ao-research.git",
-        "sha": "74dc23916c8dc638f5e9b897cfe1538746a2119f"
+        "sha": "8a5cb63b0ae5a958c0932e34049bbbe39ffc4160"
       },
       "description": "Natural-language database operations, workspace setup, research methodology, infrastructure governance, and a bilingual (EN/KO) design handbook. Works with any MCP-compatible agent platform.",
       "category": "productivity",
