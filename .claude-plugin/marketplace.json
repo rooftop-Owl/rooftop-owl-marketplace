@@ -25,7 +25,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/skill-factory.git",
-        "sha": "80d9352b89cb846f064ec9b5987d69a41b7c7dd3"
+        "sha": "2b9b87403405c757aeff281e243c69cc63b05499"
       },
       "description": "Portable skill lifecycle manager — search 300K+ skills, import from GitHub, validate against agentskills.io spec, remove cleanly with provenance tracking.",
       "category": "developer-tools",
