@@ -109,4 +109,26 @@ jobs:
           git add .claude-plugin/marketplace.json
           git diff --cached --quiet && echo "No changes" && exit 0
           git commit -m "chore(marketplace): bump ${PLUGIN} to ${NEW_VERSION} (${SHA})"
-          git push
+          # Push with rebase-retry. The job-level concurrency group serializes
+          # most runs, but a burst of near-simultaneous dispatches (e.g. a
+          # multi-plugin release) still races: a second run commits against a
+          # main that a first run already advanced, so its push is rejected
+          # non-fast-forward. Rebasing our single bump commit onto the updated
+          # main and retrying resolves it; distinct plugins touch distinct
+          # marketplace.json lines so the rebase is clean. A same-plugin
+          # collision (rare) would conflict and fail loud, recoverable by
+          # re-dispatching. Random backoff de-syncs concurrent retriers.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "pushed on attempt ${attempt}"
+              exit 0
+            fi
+            echo "push rejected (attempt ${attempt}) — rebasing onto origin/main and retrying" >&2
+            sleep $(( (RANDOM % 4) + 1 ))
+            if ! git pull --rebase origin main; then
+              echo "ERROR: rebase onto origin/main failed (likely a same-plugin concurrent bump); re-dispatch to retry" >&2
+              exit 1
+            fi
+          done
+          echo "ERROR: push still rejected after 5 rebase-retry attempts" >&2
+          exit 1
