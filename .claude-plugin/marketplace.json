@@ -25,12 +25,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/skill-factory.git",
-        "sha": "2b9b87403405c757aeff281e243c69cc63b05499"
+        "sha": "ad94841624b0a5c3d433388b80a206670da5cbb9"
       },
       "description": "Portable skill lifecycle manager — search 300K+ skills, import from GitHub, validate against agentskills.io spec, remove cleanly with provenance tracking.",
       "category": "developer-tools",
       "homepage": "https://github.com/rooftop-Owl/skill-factory",
-      "version": "0.2.1"
+      "version": "0.3.0"
     },
     {
       "name": "aeolus-agents",
