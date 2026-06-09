@@ -121,12 +121,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/ephemeris-plugin.git",
-        "sha": "f66b16719995820630795784ff69e8ab5ad7b801"
+        "sha": "77eda0488fcb940f435d3898f327fd6345eb189e"
       },
       "description": "Living observatory of the AI/agent/coding-tooling landscape. Karpathy-style wiki with L1 references, L2 digests, and L3 cluster surveys kept alive by a GitHub-API liveness probe. Plugin code; data at github.com/rooftop-Owl/ephemeris.",
       "category": "developer-tools",
       "homepage": "https://github.com/rooftop-Owl/ephemeris-plugin",
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   ]
 }
