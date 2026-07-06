@@ -139,6 +139,18 @@
       "category": "productivity",
       "homepage": "https://github.com/rooftop-Owl/shaikespeare",
       "version": "0.3.0"
+    },
+    {
+      "name": "paperthin",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/LilMGenius/paperthin.git",
+        "sha": "ad99c35b8fab32e571c80aa0720a756dc28763e6"
+      },
+      "description": "Third-party (LilMGenius, MIT) — low-level agentic design-pattern reflexes (re0, shower, sip, nba, ssotchk); model-invoked, agent-agnostic. Curated into this registry as astraea's dogfood reflex layer; not rooftop-Owl authored.",
+      "category": "developer-tools",
+      "homepage": "https://github.com/LilMGenius/paperthin",
+      "version": "0.9.2"
     }
   ]
 }
