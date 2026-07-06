@@ -127,6 +127,18 @@
       "category": "developer-tools",
       "homepage": "https://github.com/rooftop-Owl/ephemeris-plugin",
       "version": "0.2.1"
+    },
+    {
+      "name": "shaikespeare",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/rooftop-Owl/shaikespeare.git",
+        "sha": "47a6b6882b2904435481e66eb50f26521a52683f"
+      },
+      "description": "Humanize AI-written prose in English and Korean. Bundles avoid-ai-writing (EN) and humanize-korean (KO, 40+ pattern AI-tell taxonomy), with rooftop-Owl deltas.",
+      "category": "productivity",
+      "homepage": "https://github.com/rooftop-Owl/shaikespeare",
+      "version": "0.1.0"
     }
   ]
 }
