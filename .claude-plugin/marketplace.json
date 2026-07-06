@@ -133,12 +133,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/shaikespeare.git",
-        "sha": "47a6b6882b2904435481e66eb50f26521a52683f"
+        "sha": "4e04b35d2b44b7421cc51eff1a809bed155e857e"
       },
-      "description": "Humanize AI-written prose in English and Korean. Bundles avoid-ai-writing (EN) and humanize-korean (KO, 40+ pattern AI-tell taxonomy), with rooftop-Owl deltas.",
+      "description": "Humanize AI-written prose in English and Korean. Bundles humanize-writing-en and humanize-writing-ko (40+ pattern AI-tell taxonomy), with rooftop-Owl deltas.",
       "category": "productivity",
       "homepage": "https://github.com/rooftop-Owl/shaikespeare",
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   ]
 }
