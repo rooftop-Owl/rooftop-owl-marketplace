@@ -61,12 +61,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/climada-agents.git",
-        "sha": "0c864af1fe24089f45cf64b80a20a5640ccd4a7d"
+        "sha": "d13eeb14f9751d37c0f52691bfd69ec63e69675a"
       },
       "description": "Specialized skills for CLIMADA climate risk workflows — hazards, exposures, impacts, visualization, economics, committee governance.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/climada-agents",
-      "version": "1.1.1"
+      "version": "1.2.0"
     },
     {
       "name": "wrf-chem-agents",
