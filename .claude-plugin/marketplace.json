@@ -85,7 +85,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/research-zotero.git",
-        "sha": "f00a121479de39d052f44fc1024215dfa157323b"
+        "sha": "2435b89cde89a9c350badc6004406a9958b1dc00"
       },
       "description": "Federated paper search across 22+ sources with venue/journal filtering, citation graph analysis, auto-tagging (regex + LLM), auto-classification, BibTeX export, MCP-compliant server, Semantic Scholar integration, and compounding Research KB (L1/L2/L3 hierarchy, synthesis grading, contradiction tracking, cross-session digests).",
       "category": "scientific-research",
