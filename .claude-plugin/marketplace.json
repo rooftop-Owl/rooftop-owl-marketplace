@@ -133,7 +133,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/shaikespeare.git",
-        "sha": "9dc43798062176069f36ec6432d7886bf52465b8"
+        "sha": "b0c177beda78d5ce17be9d5d9e34a97c61be0e3d"
       },
       "description": "Humanize AI-written prose in English and Korean. Bundles humanize-writing-en (avoid-ai-writing v3.26.0 + fork additions from ten reference anti-slop skills) and humanize-writing-ko (im-not-ai rulebook at 0ac1e84f, 70+ patterns, a fork-owned cand-* candidate pool, a deterministic change-rate gate) plus the 12-agent pipeline for Korean strict mode.",
       "category": "productivity",
