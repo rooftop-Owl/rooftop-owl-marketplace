@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Validate allowlist
         env:
-          ALLOWED: "astraea skill-factory aeolus-agents dart-agents climada-agents wrf-chem-agents research-zotero slideaway notion-ao-research ephemeris"
+          ALLOWED: "astraea skill-factory aeolus-agents dart-agents climada-agents wrf-chem-agents research-zotero slideaway notion-ao-research ephemeris shaikespeare paperthin"
           PLUGIN: ${{ github.event.client_payload.plugin }}
         run: |
           if ! echo "$ALLOWED" | grep -qw "$PLUGIN"; then
