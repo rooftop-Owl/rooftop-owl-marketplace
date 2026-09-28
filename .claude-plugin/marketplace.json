@@ -85,12 +85,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/research-zotero.git",
-        "sha": "60921ba72e11349d0c4a830cbe2da88276029dc9"
+        "sha": "b79e8c04a2b88a3a69fc0dd6c33cf7ad4af48000"
       },
       "description": "Federated paper search across 22+ sources with venue/journal filtering, citation graph analysis, auto-tagging (regex + LLM), auto-classification, BibTeX export, MCP-compliant server, Semantic Scholar integration, and compounding Research KB (L1/L2/L3 hierarchy, synthesis grading, contradiction tracking, cross-session digests).",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/research-zotero",
-      "version": "2.16.1"
+      "version": "2.17.0"
     },
     {
       "name": "slideaway",
