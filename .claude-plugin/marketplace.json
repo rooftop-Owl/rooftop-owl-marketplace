@@ -13,7 +13,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/astraea.git",
-        "sha": "21aeffa1fda9e8db267eb61941165e8af1ec9c64"
+        "sha": "b5aef56fe2dca6b3fc741daf5a2cc559dbfcfe75"
       },
       "description": "Orchestration kernel for Claude Code — multi-agent delegation, institutional memory, governance rules, cross-session continuity, and a 3-MCP-server stack (GitNexus, DeepWiki, QMD) for codebase intelligence and knowledge retrieval.",
       "category": "developer-tools",
