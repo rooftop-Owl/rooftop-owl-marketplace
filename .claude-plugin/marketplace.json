@@ -98,7 +98,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/slideaway.git",
-        "sha": "653330496fbdc2d45c2d4720e708ae4ddbed0ec5"
+        "sha": "c1e89f0e358ac5df49e95111cfcbe6aaf750aa9b"
       },
       "description": "Multi-engine presentation plugin with curated styles, progressive disclosure skill architecture, anti-AI-slop heuristics, and opt-in style preview + refinement loops. Generates PPTX, HTML, reveal.js, Beamer, and Marp decks.",
       "category": "design",
