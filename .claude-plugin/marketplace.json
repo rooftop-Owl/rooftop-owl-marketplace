@@ -49,12 +49,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/dart-agents.git",
-        "sha": "4b4940ccf5273824172fd44a00617029bc2a9bed"
+        "sha": "bbdc3885e44525e5e4f60ffe036854ec1bff829e"
       },
       "description": "SOTA skills and agents for DART ensemble data assimilation, Fortran development, WRF-Chem integration, and atmospheric science workflows.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/dart-agents",
-      "version": "1.12.3"
+      "version": "1.12.4"
     },
     {
       "name": "climada-agents",
