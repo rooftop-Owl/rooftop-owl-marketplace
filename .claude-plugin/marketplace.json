@@ -39,21 +39,21 @@
         "url": "https://github.com/rooftop-Owl/aeolus-agents.git",
         "sha": "1f01ad140b879f60c08723b7ad37cd10c9b878df"
       },
-      "description": "Thematic bundle for atmospheric-science research — aggregates dart-agents, climada-agents, wrf-chem-agents, and a bundled scientific-research sub-plugin. Install this to get the full science stack in one step.",
+      "description": "Thematic bundle for atmospheric-science research — aggregates dart-harness, climada-agents, wrf-chem-agents, and a bundled scientific-research sub-plugin. Install this to get the full science stack in one step.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/aeolus-agents",
       "version": "1.0.0"
     },
     {
-      "name": "dart-agents",
+      "name": "dart-harness",
       "source": {
         "source": "url",
-        "url": "https://github.com/rooftop-Owl/dart-agents.git",
+        "url": "https://github.com/rooftop-Owl/dart-harness.git",
         "sha": "706d2c46857d2564d4fc11a8ab0711b880117997"
       },
       "description": "SOTA skills and agents for DART ensemble data assimilation, Fortran development, WRF-Chem integration, and atmospheric science workflows.",
       "category": "scientific-research",
-      "homepage": "https://github.com/rooftop-Owl/dart-agents",
+      "homepage": "https://github.com/rooftop-Owl/dart-harness",
       "version": "1.13.8"
     },
     {
