@@ -18,7 +18,7 @@ Before rooftop-Owl, every plugin shipped with its own `marketplace.json` — 7+ 
 | [astraea](https://github.com/rooftop-Owl/astraea) | developer-tools | Orchestration kernel — multi-agent delegation, institutional memory, governance rules |
 | [skill-factory](https://github.com/rooftop-Owl/skill-factory) | developer-tools | Portable skill lifecycle manager for Claude Code |
 | [aeolus-agents](https://github.com/rooftop-Owl/aeolus-agents) | scientific-research | **Bundle** — installs the full atmospheric-science stack in one step |
-| [dart-agents](https://github.com/rooftop-Owl/dart-agents) | scientific-research | DART ensemble data assimilation + Fortran development |
+| [dart-harness](https://github.com/rooftop-Owl/dart-harness) | scientific-research | DART ensemble data assimilation + Fortran development |
 | [climada-agents](https://github.com/rooftop-Owl/climada-agents) | scientific-research | CLIMADA climate risk workflows |
 | [wrf-chem-agents](https://github.com/rooftop-Owl/wrf-chem-agents) | scientific-research | WRF-Chem chemistry transport simulation |
 | [research-zotero](https://github.com/rooftop-Owl/research-zotero) | scientific-research | Federated paper search + Zotero library management |
@@ -53,7 +53,7 @@ The registry contains **only references** — no plugin code lives here. Each pl
 - **SHA pinning**: every plugin entry pins a specific commit SHA for reproducibility. Updates are deliberate edits to `marketplace.json`, never automatic.
 - **Upstream trust**: the author (rooftop-Owl) maintains every listed plugin personally. This is a curated registry, not a community marketplace.
 - **License diversity**: per-plugin licenses are preserved as-is. Consumers should check each plugin's repository for its license before use.
-- **Meta-bundle caveat**: `aeolus-agents` is a thematic bundle that internally references `dart-agents`, `climada-agents`, and `wrf-chem-agents`. Installing aeolus-agents pulls those transitively. The individual science plugins are ALSO listed as top-level entries for consumers who want them separately. Slight duplication is accepted for ergonomic convenience.
+- **Meta-bundle caveat**: `aeolus-agents` is a thematic bundle that internally references `dart-harness`, `climada-agents`, and `wrf-chem-agents`. Installing aeolus-agents pulls those transitively. The individual science plugins are ALSO listed as top-level entries for consumers who want them separately. Slight duplication is accepted for ergonomic convenience.
 
 ## Updating a plugin's pinned SHA
 
