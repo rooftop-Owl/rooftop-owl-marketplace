@@ -61,7 +61,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/climada-harness.git",
-        "sha": "42ac452f5c6e7f28d81cb7a53e2852a90380d1b9"
+        "sha": "571f8a8ea7d31f43df8341c933b176b1869ac76a"
       },
       "description": "Specialized skills for CLIMADA climate risk workflows — hazards, exposures, impacts, visualization, economics, committee governance.",
       "category": "scientific-research",
