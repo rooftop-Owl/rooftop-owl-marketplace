@@ -61,12 +61,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/climada-harness.git",
-        "sha": "571f8a8ea7d31f43df8341c933b176b1869ac76a"
+        "sha": "5529aae54c7c04ccda21f9077bfe2323effd653c"
       },
       "description": "Specialized skills for CLIMADA climate risk workflows — hazards, exposures, impacts, visualization, economics, committee governance.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/climada-harness",
-      "version": "1.3.1"
+      "version": "1.3.2"
     },
     {
       "name": "wrf-chem-agents",
