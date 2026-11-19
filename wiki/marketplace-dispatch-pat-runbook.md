@@ -38,7 +38,7 @@ a PR to advance the SHA pin.
 | rooftop-Owl/skill-factory | skill-factory | `MARKETPLACE_DISPATCH_SKILL_FACTORY` |
 | rooftop-Owl/aeolus-agents | aeolus-agents | `MARKETPLACE_DISPATCH_AEOLUS_AGENTS` |
 | rooftop-Owl/dart-harness | dart-harness | `MARKETPLACE_DISPATCH_DART_AGENTS` |
-| rooftop-Owl/climada-agents | climada-agents | `MARKETPLACE_DISPATCH_CLIMADA_AGENTS` |
+| rooftop-Owl/climada-harness | climada-harness | `MARKETPLACE_DISPATCH_CLIMADA_AGENTS` |
 | rooftop-Owl/wrf-chem-agents | wrf-chem-agents | `MARKETPLACE_DISPATCH_WRF_CHEM_AGENTS` |
 | rooftop-Owl/research-zotero | research-zotero | `MARKETPLACE_DISPATCH_RESEARCH_ZOTERO` |
 | rooftop-Owl/slideaway | slideaway | `MARKETPLACE_DISPATCH_SLIDEAWAY` |
