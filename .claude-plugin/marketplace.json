@@ -49,12 +49,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/dart-harness.git",
-        "sha": "2921fe405946ece8a684d9e5742a76bfebe38d73"
+        "sha": "77b31ee5772585f33fd02888f22d13565bc610ce"
       },
       "description": "SOTA skills and agents for DART ensemble data assimilation, Fortran development, WRF-Chem integration, and atmospheric science workflows.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/dart-harness",
-      "version": "1.14.1"
+      "version": "1.14.2"
     },
     {
       "name": "climada-harness",
