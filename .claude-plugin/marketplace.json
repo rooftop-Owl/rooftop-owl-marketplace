@@ -151,6 +151,18 @@
       "category": "developer-tools",
       "homepage": "https://github.com/LilMGenius/paperthin",
       "version": "0.9.2"
+    },
+    {
+      "name": "ml-research-harness",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/rooftop-Owl/ml-research-harness.git",
+        "sha": "f803536985caec7087fd009dbe0dd0254658be96"
+      },
+      "description": "Method knowledge and evaluation discipline for scientific machine-learning research: an 18-item pre-data evaluation-design checklist, quote-checked architecture method cards, an experiment ledger, an input-integrity preflight and an independent design reviewer; project values come from a per-project binding file.",
+      "category": "scientific-research",
+      "homepage": "https://github.com/rooftop-Owl/ml-research-harness",
+      "version": "0.1.0"
     }
   ]
 }
