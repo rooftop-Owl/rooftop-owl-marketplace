@@ -157,12 +157,12 @@
       "source": {
         "source": "url",
         "url": "https://github.com/rooftop-Owl/ml-research-harness.git",
-        "sha": "f01d05a6c361204126e0acb385d8c955b408c166"
+        "sha": "3f54c3f938ae5df3ff466e17bbca753d3a705f3e"
       },
       "description": "Science-driven methodological support for scientific machine-learning research: a problem fingerprint that reconstructs the scientific problem before methods are chosen, a growing capability vocabulary, a capability-primitive-family mechanism index, a method discovery workflow that searches by mathematical structure and routes information deficits away from architectures, an architecture synthesis workflow that writes candidate models as equations and tests them against prior art and interference, eleven quote-checked method cards, a pre-data evaluation checklist, a guarded experiment loop, ledger and preflight tools, and an independent design reviewer; project values come from a per-project binding file.",
       "category": "scientific-research",
       "homepage": "https://github.com/rooftop-Owl/ml-research-harness",
-      "version": "0.5.1"
+      "version": "0.5.2"
     }
   ]
 }
